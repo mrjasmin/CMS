@@ -47,7 +47,6 @@
             <li><a href="#">Settings</a></li>
             <li><a href="<?php echo site_url().'users/logout/'; ?>">Logout</a></li>
           </ul>
-          
         </div>
       </div>
     </nav>
@@ -57,12 +56,12 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href="<?php echo site_url().'pages'; ?>">Pages</a></li>
-            <li><a href="#">News</a></li>
+            <li ><a href="<?php echo site_url().'pages'; ?>">Pages</a></li>
+            <li class="active"><a href="#">News</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="<?php echo site_url().'users'; ?>">Users</a></li>
-            <li class="active"><a href="<?php echo site_url().'admin/dashboard/settings'; ?>">Settings</a></li>
+            <li><a href="">Settings</a></li>
           </ul>
          
         </div>
@@ -72,53 +71,40 @@
             
           </div>
 
-          <h2 class="sub-header">Page Settings</h2>
+          <h2 class="sub-header">Add new Article</h2>
           <div class="table-responsive">
 
            <?php 
            
-           echo form_open('admin/dashboard/save_settings'); 
+           echo form_open('articles/new_article'); 
 
-           $data = array(
+           $title = array(
               'name'        => 'title',
               'id'          => 'title',
               'maxlength'   => '100',
               'size'        => '50',
             );
 
-            $about = array(
-              'name'        => 'about',
-              'id'          => 'about',
-              'maxlength'   => '100',
-              'size'        => '50',
+           
+            $content = array(
+              'name'        => 'content',
+              'id'          => 'content',
+              'rows'        =>  '10',
+              'cols'       => '51',
             );
 
-            $footer_text = array(
-              'name'        => 'footer',
-              'id'          => 'footer',
-              'maxlength'   => '100',
-              'size'        => '50',
-            );
-
-
-            echo form_label('h2 header', 'title');
+          
+            echo form_label('Title', 'title');
             echo "</br>"; 
-            echo form_input($data);
+            echo form_input($title);
             echo "</br>"; 
 
-            echo form_label('About text', 'about');
+            echo form_label('Content', 'content');
             echo "</br>"; 
-            echo form_input($about);
+            echo form_textarea($content);
             echo "</br>";
-
-
-            echo form_label('Footer text', 'footer');
-            echo "</br>"; 
-            echo form_input($footer_text);
-            echo "</br>"; 
-            echo "</br>"; 
             
-            echo form_submit('update', 'Save settings');
+            echo form_submit('Create', 'Create Article');
 
             ?>
 

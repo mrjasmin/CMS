@@ -44,83 +44,83 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
+            <li><a href="<?php echo site_url().'admin/dashboard/settings'; ?>">Settings</a></li>
             <li><a href="<?php echo site_url().'users/logout/'; ?>">Logout</a></li>
           </ul>
-          
+         
         </div>
       </div>
     </nav>
+
+
 
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href="<?php echo site_url().'pages'; ?>">Pages</a></li>
-            <li><a href="#">News</a></li>
+            <li><a href="#">Overview</a></li>
+            <li ><a href="#">Pages <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="#">News</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="<?php echo site_url().'users'; ?>">Users</a></li>
-            <li class="active"><a href="<?php echo site_url().'admin/dashboard/settings'; ?>">Settings</a></li>
+            <li><a href="">Users</a></li>
+            <li><a href="<?php echo site_url().'admin/dashboard/settings/'; ?>">Settings</a></li>
           </ul>
          
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Welcome </h1>
+          <h1 class="page-header">Page Settings</h1>
+
           <div class="row placeholders">
             
           </div>
 
-          <h2 class="sub-header">Page Settings</h2>
+         
+
+          <h2 class="sub-header">Your Articles</h2>
           <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Article id</th>
+                  <th>Title</th>
+                  <th>Date published</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php 
 
-           <?php 
-           
-           echo form_open('admin/dashboard/save_settings'); 
-
-           $data = array(
-              'name'        => 'title',
-              'id'          => 'title',
-              'maxlength'   => '100',
-              'size'        => '50',
-            );
-
-            $about = array(
-              'name'        => 'about',
-              'id'          => 'about',
-              'maxlength'   => '100',
-              'size'        => '50',
-            );
-
-            $footer_text = array(
-              'name'        => 'footer',
-              'id'          => 'footer',
-              'maxlength'   => '100',
-              'size'        => '50',
-            );
+         foreach($articles as $t){ 
 
 
-            echo form_label('h2 header', 'title');
-            echo "</br>"; 
-            echo form_input($data);
-            echo "</br>"; 
+          echo "<tr>" ;
+          echo "<td>";
+          echo $t['ID']; 
+          echo "</td>"; 
+          echo "<td>";
+          echo $t['title']; 
+          echo "</td>"; 
+          echo "<td>";
+          echo $t['date']; 
+          echo "</td>"; 
+          echo "<td>";
+          echo "<a href=". base_url().'/pages/edit_page_form/'. $t['ID'].">";       
+          echo "<img src=". site_url('img/edit.png').">"; 
+          echo "</a>"; 
+          echo "<a href=". base_url().'/articles/delete_article/'. $t['ID'].">";       
+          echo "<img src=". site_url('img/delete.png')." id='delete_img'>"; 
+          echo "</a>"; 
+          echo "</td>";
+          echo "</tr>"; 
+        
+        } 
 
-            echo form_label('About text', 'about');
-            echo "</br>"; 
-            echo form_input($about);
-            echo "</br>";
+    ?>
+              </tbody>
+            </table>
 
-
-            echo form_label('Footer text', 'footer');
-            echo "</br>"; 
-            echo form_input($footer_text);
-            echo "</br>"; 
-            echo "</br>"; 
-            
-            echo form_submit('update', 'Save settings');
-
-            ?>
+            <h3 id="new_page"><a href="<?php echo base_url() . '/articles/new_article_form'; ?>"<span>Add new article</span></h3>
 
           </div>
         </div>

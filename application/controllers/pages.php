@@ -48,8 +48,6 @@ class Pages extends My_Controller {
 		
 		$this->page->save($data_array); 
 
-		$data['pages'] = $this->page->get_pages(); 
-
 		redirect('pages'); 
 
 	}

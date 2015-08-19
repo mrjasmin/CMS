@@ -44,12 +44,10 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
+            <li><a href="<?php echo site_url().'admin/dashboard/settings'; ?>">Settings</a></li>
             <li><a href="<?php echo site_url().'users/logout/'; ?>">Logout</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
+         
         </div>
       </div>
     </nav>
@@ -66,7 +64,7 @@
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="">Users</a></li>
-            <li><a href="">Settings</a></li>
+            <li><a href="<?php echo site_url().'admin/dashboard/settings/'; ?>">Settings</a></li>
           </ul>
          
         </div>

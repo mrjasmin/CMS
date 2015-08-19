@@ -6,22 +6,37 @@ class Articles extends CI_Controller {
 		parent::__construct();
 		$this->load->model('article'); 
 		$this->load->model('page'); 
+		$this->load->helper('form'); 
+		$this->load->helper('date'); 
 	}
 	
 	function index(){
 		$data_array['articles'] = $this->article->get_articles(); 
 
-		$this->load->view('homepage', $data_array); 
+		$this->load->view('articles', $data_array); 
 	}
 	
-	function new_article(){
-		//$data_array = array('page_id'=>2, 'name'=>'tasesting', 'text'=>"A page asabout programming", 'order'=>4);
-		//$this->page->insert_page($data_array); 
+	function new_article_form(){
 		
+		$this->load->view('new_article'); 
+	}
+
+	function new_article(){
+		$data_array = array('title' => $_POST['title'], 
+						'content' => $_POST['content'], 
+						'date'=> now(), 
+						'author'=> 'mrjasmin'); 
+
+		
+		$this->article->save($data_array); 
+
+		redirect('articles'); 
 	}
 	
 	function delete_article($id){
-		//$this->page->delete_page($id); 
+		$this->article->delete_article($id); 
+
+		redirect('articles'); 
 	}
 	
 	function edit_article(){
