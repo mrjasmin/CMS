@@ -54,66 +54,73 @@
       </div>
     </nav>
 
-
-
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li><a href="#">Overview</a></li>
-            <li class="active"><a href="#">Pages <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="<?php echo site_url().'pages'; ?>">Pages</a></li>
             <li><a href="#">News</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="">Users</a></li>
+            <li><a href="<?php echo site_url().'users'; ?>">Users</a></li>
             <li><a href="">Settings</a></li>
           </ul>
          
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Page Settings</h1>
-
+          <h1 class="page-header">Welcome </h1>
           <div class="row placeholders">
             
           </div>
 
-         
-
-          <h2 class="sub-header">Your Pages</h2>
+          <h2 class="sub-header">Add new Page</h2>
           <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Page id</th>
-                  <th>Name</th>
-                  <th>Order</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php 
 
-         foreach($pages as $t){ 
+           <?php 
+           
+           echo form_open('pages/new_page'); 
 
+           $title = array(
+              'name'        => 'title',
+              'id'          => 'title',
+              'maxlength'   => '100',
+              'size'        => '50',
+            );
 
-          echo "<tr>" ;
-          echo "<td>";
-          echo $t['page_id']; 
-          echo "</td>"; 
-          echo "<td>";
-          echo $t['name']; 
-          echo "</td>"; 
-          echo "<td>";
-          echo $t['order']; 
-          echo "</td>"; 
-          echo "</tr>"; 
-         
-        } 
+            $order = array(
+              'name'        => 'order',
+              'id'          => 'order',
+              'maxlength'   => '100',
+              'size'        => '50',
+            );
 
-    ?>
-              </tbody>
-            </table>
+            $content = array(
+              'name'        => 'content',
+              'id'          => 'content',
+              'rows'        =>  '10',
+              'cols'       => '51',
+            );
 
-            <h3 id="new_page"><a href="<?php echo base_url() . '/pages/new_page_form'; ?>"<span>Add new page</span></h3>
+          
+            echo form_label('Page title', 'title');
+            echo "</br>"; 
+            echo form_input($title);
+            echo "</br>"; 
+
+            echo form_label('Page order', 'order');
+            echo "</br>"; 
+            echo form_input($order);
+            echo "</br>"; 
+
+            echo form_label('Content', 'about');
+            echo "</br>"; 
+            echo form_textarea($content);
+            echo "</br>";
+            
+            echo form_submit('Create', 'Create Page');
+
+            ?>
 
           </div>
         </div>

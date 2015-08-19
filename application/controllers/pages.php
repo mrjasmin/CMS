@@ -9,6 +9,7 @@ class Pages extends My_Controller {
 		$this->load->library('session');
 		$this->load->library('encrypt');
 		$this->load->helper('form');
+
 	}
 	
 	function index(){
@@ -33,10 +34,17 @@ class Pages extends My_Controller {
 
 	}
 	
-	function new_page(){
-		$data_array = array('page_id'=>2, 'name'=>'tasesting', 'text'=>"A page asabout programming", 'order'=>4);
-		$this->page->insert_page($data_array); 
+	function new_page_form(){
+		$this->load->view('new_page'); 
 		
+	}
+
+	function new_page(){
+		$data_array = array('name' => $_POST['title'], 
+						'text' => $_POST['content'], 
+						'order'=> $_POST['order']); 
+		
+		$this->page->save($data_array); 
 	}
 	
 	function delete_page($id){
