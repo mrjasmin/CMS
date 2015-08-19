@@ -73,9 +73,18 @@
           </p>
           <div class="jumbotron">
             <h1>Hello, world!</h1>
-            <p><?php echo $settings[0]['about_text']; ?></p>
-          </div>
+            <p>
+            <?php 
+              if($settings == null){
+                echo "Text about you and your page"; 
+               }
+              else {
+                echo $settings[0]['about_text'];
+              }
 
+            ?>
+            </p>
+          </div>
 
           <div class="row">
           <?php 
@@ -114,9 +123,18 @@
 
       <hr>
      
-
       <footer>
-        <p>&copy; <?php echo $settings[0]['footer_text']; ?></p>
+        <p>
+        <?php 
+          if($settings == null){
+            echo "@copyright"; 
+          }
+          else {
+            echo $settings[0]['footer_text'];
+          }
+
+       ?>
+     </p>
       </footer>
 
     </div><!--/.container-->
