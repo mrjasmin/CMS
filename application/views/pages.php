@@ -112,6 +112,9 @@
     ?>
               </tbody>
             </table>
+
+            <h3 id="new_page"><a href="<?php echo base_url() . '/page/new_page'; ?>"<span>Add new page</span></h3>
+
           </div>
         </div>
       </div>

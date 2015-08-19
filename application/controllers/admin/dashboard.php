@@ -27,7 +27,6 @@ class Dashboard extends CI_Controller {
 	
 	public function settings(){
 		$data_array['settings'] = $this->settings->get_settings(); 
-		if($data_array[] != 
 		$this->load->view('page_settings', $data_array); 
 	}
 

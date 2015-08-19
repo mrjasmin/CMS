@@ -103,3 +103,9 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+
+#new_page { background-image: url("../img/add.png");  background-repeat: no-repeat; background-position: 0px 0; height: 33px;  }
+
+#new_page a  {margin-left: 38px; float: left; margin-top: 3px;  color: inherit; }
+
+#new_page a:hover {color: grey; text-decoration: none; }
