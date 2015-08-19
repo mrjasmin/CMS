@@ -21,4 +21,8 @@ class page extends MY_Model {
 		$this->delete($id); 
 	}
 
+	public function update_page($data){
+		$this->update($data); 
+	}
+
 }

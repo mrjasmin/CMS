@@ -27,8 +27,7 @@ class MY_Model extends CI_Model {
 		}
 		
 	}
-	
-	
+
 	public function save($data){
 		
 		$this->db->insert($this->_table_name, $data); 
@@ -42,7 +41,9 @@ class MY_Model extends CI_Model {
 		$this->db->delete($this->_table_name); 
 	}
 	
-	public function update(){null;}
-	
+	public function update($data){
+		$this->db->where('page_id', $data['page_id']);
+		$this->db->update($this->_table_name, $data); 
+	}
 
 }

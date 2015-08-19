@@ -43,20 +43,41 @@ class Pages extends My_Controller {
 		$data_array = array('name' => $_POST['title'], 
 						'text' => $_POST['content'], 
 						'order'=> $_POST['order']); 
+
+		
 		
 		$this->page->save($data_array); 
+
+		$data['pages'] = $this->page->get_pages(); 
+
+		redirect('pages'); 
+
 	}
 	
 	function delete_page($id){
 		$this->page->delete_page($id); 
+		$data_array['pages'] = $this->page->get_pages(); 
+		
+		redirect('pages'); 
+
 	}
 	
-	function edit_page(){
-	
+	function edit_page_form($id){
+		$data_array['page'] = $this->page->get_pages($id);
+		$this->load->view('edit_page', $data_array); 
 	}
 
+	function edit_page($id){
 
-	
+		$data_array['pages'] = $this->page->get_pages(); 
+
+		$new_data = array('page_id' => $id, 'name'=> $_POST['title'], 'order' => $_POST['order'], 'text' => $_POST['content']); 
+		$this->page->update_page($new_data); 
+		
+		redirect('pages'); 
+
+	}
+
 }
 
 ?>

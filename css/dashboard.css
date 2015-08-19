@@ -109,3 +109,5 @@ body {
 #new_page a  {margin-left: 38px; float: left; margin-top: 3px;  color: inherit; }
 
 #new_page a:hover {color: grey; text-decoration: none; }
+
+#delete_img {margin-top: 2px; }
