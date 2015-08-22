@@ -24,10 +24,15 @@ class Dashboard extends CI_Controller {
 			$data_array['num_articles'] = $this->number_of_articles();
 			$data_array['num_users'] = $this->number_of_users(); 
 
+			$data_array['num_users'] = $this->number_of_users();
 
+			$data_array['active_user'] = $this->user->get_user_data(); 
+			
 			$this->load->view('index', $data_array); 
 		}
 		else {
+
+
 			$this->load->view('login'); 
 		}
 		

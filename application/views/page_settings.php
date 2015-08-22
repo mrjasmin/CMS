@@ -43,7 +43,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
+            <li><a href="">Dashboard</a></li>
             <li><a href="#">Settings</a></li>
             <li><a href="<?php echo site_url().'users/logout/'; ?>">Logout</a></li>
           </ul>
@@ -56,7 +56,7 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+            <li><a href="<?php echo site_url(). 'admin/dashboard';  ?>">Overview <span class="sr-only">(current)</span></a></li>
             <li><a href="<?php echo site_url().'pages'; ?>">Pages</a></li>
             <li><a href="#">News</a></li>
           </ul>
@@ -72,7 +72,7 @@
             
           </div>
 
-          <h2 class="sub-header">Page Settings</h2>
+          <h2 class="sub-header" id="page_icon"><span>Page Settings</span></h2>
           <div class="table-responsive">
 
            <?php 
@@ -84,6 +84,7 @@
               'id'          => 'title',
               'maxlength'   => '100',
               'size'        => '50',
+             
             );
 
             $about = array(
@@ -98,6 +99,7 @@
               'id'          => 'footer',
               'maxlength'   => '100',
               'size'        => '50',
+              'value'       =>  $settings[0]['footer_text']
             );
 
 
@@ -119,7 +121,7 @@
             echo "</br>"; 
             
             echo form_submit('update', 'Save settings');
-
+              
             ?>
 
           </div>

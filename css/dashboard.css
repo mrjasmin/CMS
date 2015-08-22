@@ -123,3 +123,15 @@ body {
 #user_logo { background-image : url("../img/user_icon.gif"); background-repeat: no-repeat; background-position: 5px 6px; margin-left: 5px; }
 
 #user_logo span {margin-left: 20px; }
+
+input[type=submit] {background-color: #428BCA; border: 1px solid #A2A2A3; padding: 8px; color: white; }
+
+input[type=submit]:hover {background-color: #5CAAED; border: 1px solid #A2A2A3; padding: 8px; color: white; }
+
+#page_icon { background-image : url("../img/page_icon.png"); background-repeat: no-repeat; background-position: 5px 2px; }
+
+#page_icon span { margin-left: 36px; }
+
+#users_icon { background-image : url("../img/users_icon.png"); background-repeat: no-repeat; background-position: 5px -3px; }
+
+#users_icon span { margin-left: 40px;  }

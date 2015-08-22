@@ -13,7 +13,10 @@ class Users extends CI_Controller {
 	}
 	
 	function index(){
-		$this->login_(); 
+
+		$data_array['users'] = $this->user->get_users(); 
+		$this->load->view('users', $data_array); 
+
 	}
 	
 	function login_(){
@@ -62,8 +65,8 @@ class Users extends CI_Controller {
 
 
 					$this->session->set_userdata($session_data); 
-					$this->load->view('index', $data); 
-					//redirect(site_url('admin/dashboard', $session_data)); 
+
+					redirect('admin/dashboard'); 
 				}
 				else {
 				   
@@ -77,6 +80,5 @@ class Users extends CI_Controller {
 		$this->user->logout(); 
 		redirect(base_url('users/login_/')); 
 	}
-  
-	
+
 }

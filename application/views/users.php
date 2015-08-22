@@ -47,9 +47,7 @@
             <li><a href="#">Settings</a></li>
             <li><a href="<?php echo site_url().'users/logout/'; ?>">Logout</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
+       
         </div>
       </div>
     </nav>
@@ -60,15 +58,15 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li><a href="#">Overview</a></li>
-            <li><a href="#">Pages</a></li>
-            <li><a href="#">News</a></li>
+            <li><a href="<?php echo site_url(). 'admin/dashboard';  ?>">Overview</a></li>
+            <li><a href="<?php echo site_url(). 'pages';  ?>">Pages</a></li>
+            <li><a href="<?php echo site_url(). 'articles';  ?>">News</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">Users <span class="sr-only">(current)</span></a></li>
-            <li><a href="">Settings</a></li>
+            <li><a href="<?php echo site_url(). 'admin/dashboard/settings';  ?>">Settings</a></li>
           </ul>
-         
+    
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">User Settings</h1>
@@ -79,7 +77,7 @@
 
          
 
-          <h2 class="sub-header">Users</h2>
+          <h2 class="sub-header" id="users_icon"><span>Users</span></h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>

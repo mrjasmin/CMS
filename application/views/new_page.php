@@ -44,12 +44,9 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
+            <li><a href="<?php echo site_url().'admin/dashboard/settings/'; ?>">Settings</a></li>
             <li><a href="<?php echo site_url().'users/logout/'; ?>">Logout</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
         </div>
       </div>
     </nav>
@@ -58,13 +55,13 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+            <li><a href="<?php echo site_url().'admin/dashboard'; ?>">Overview <span class="sr-only">(current)</span></a></li>
             <li class="active"><a href="<?php echo site_url().'pages'; ?>">Pages</a></li>
-            <li><a href="#">News</a></li>
+            <li><a href="<?php echo site_url().'articles'; ?>">News</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="<?php echo site_url().'users'; ?>">Users</a></li>
-            <li><a href="">Settings</a></li>
+            <li><a href="<?php echo site_url().'admin/dashboard/settings/'; ?>">Settings</a></li>
           </ul>
          
         </div>

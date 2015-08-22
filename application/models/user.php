@@ -45,6 +45,10 @@ class User extends MY_Model {
 	public function count_users(){
 		return $this->get_num_rows(); 
 	}
+
+	public function get_user_data(){
+		return $this->session->userdata('username');
+	}
 	
 }
 

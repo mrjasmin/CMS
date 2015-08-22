@@ -18,7 +18,7 @@ class Settings extends MY_Model {
 			$this->save($data); 
 		}
 		else {
-			//update
+			//Update row in database
 		}
 	}
 	

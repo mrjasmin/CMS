@@ -56,7 +56,7 @@
           </ul>
            <div class=" navbar-right">
              <ul class="nav navbar-nav">
-               <li><a href="<?php echo site_url(). '/admin/dashboard'; ?>">Admin Panel</a></li>
+               <li class="admin_icon"><a class="admin_ref" href="<?php echo site_url(). '/admin/dashboard'; ?>">Admin Panel</a></li>
              </ul>
            </div>
         </div><!-- /.nav-collapse -->
@@ -105,22 +105,23 @@
           ?>
            </div> 
 
-           <?php echo $this->pagination->create_links(); ?>
 
          </div>
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-          <div class="list-group">
-            <a href="#" class="list-group-item active">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-         
+           <div class="panel panel-default stats-articles">
+            <div class="panel-heading"><b>About me</b></div>
+            <div class="panel-body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim nibh at mauris porta laoreet nec finibus quam. </p>
+            </div>
+        
+        </div>
+
+         <div class="panel panel-default stats-articles">
+            <div class="panel-heading"><b>Categories</b></div>
+            <div class="panel-body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim nibh at mauris porta laoreet nec finibus quam. </p>
+            </div>
+        
         </div>
         </div><!--/.sidebar-offcanvas-->
       </div><!--/row-->

@@ -55,7 +55,7 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="<?php echo site_url().'admin/dashboard';?>">Overview <span class="sr-only">(current)</span></a></li>
             <li><a href="<?php echo site_url().'pages'; ?>">Pages</a></li>
             <li><a href="<?php echo site_url().'articles'; ?>">News</a></li>
           </ul>
@@ -69,7 +69,7 @@
     
 
            <div class="panel panel-default">
-            <div class="panel-heading" id="user_logo"><span>Logged in as: <b>mrjasmin</b></span></div>
+            <div class="panel-heading" id="user_logo"><span>Logged in as: <b><?php echo $active_user;?></b></span></div>
             
           </div>
 
@@ -84,6 +84,10 @@
             </div>
           </div>
 
+          <?php if($active_user == null){
+            print_r($active_user); 
+          }
+          ?>
 
           <h2 class="sub-header">Statistics</h2>
          
