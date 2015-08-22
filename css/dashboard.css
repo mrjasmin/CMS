@@ -111,3 +111,15 @@ body {
 #new_page a:hover {color: grey; text-decoration: none; }
 
 #delete_img {margin-top: 2px; }
+
+.stats-pages, .stats-articles, .stats-users {text-align:center; color: #F2F2F2; }
+
+.stats-pages .panel-body{ background-color: #4EB6D9;}
+
+.stats-articles .panel-body{ background-color: #A340C7;}
+
+.stats-users .panel-body{ background-color: #EBD79C;}
+
+#user_logo { background-image : url("../img/user_icon.gif"); background-repeat: no-repeat; background-position: 5px 6px; margin-left: 5px; }
+
+#user_logo span {margin-left: 20px; }

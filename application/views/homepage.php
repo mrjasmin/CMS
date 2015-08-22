@@ -103,7 +103,11 @@
             }
             
           ?>
-           </div> </div>
+           </div> 
+
+           <?php echo $this->pagination->create_links(); ?>
+
+         </div>
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
             <a href="#" class="list-group-item active">Link</a>
