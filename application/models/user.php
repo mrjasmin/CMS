@@ -40,6 +40,11 @@ class User extends MY_Model {
 	
 		return $this->get(); 
 	}
+
+
+	public function count_users(){
+		return $this->get_num_rows(); 
+	}
 	
 }
 

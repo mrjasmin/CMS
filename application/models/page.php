@@ -25,4 +25,8 @@ class page extends MY_Model {
 		$this->update($data); 
 	}
 
+	public function count_pages(){
+		return $this->get_num_rows(); 
+	}
+
 }

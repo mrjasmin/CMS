@@ -92,16 +92,16 @@
             <div class="col-sm-4 col-md-3">  <div class="panel panel-default stats-pages">
             <div class="panel-heading"><b>PAGES</b></div>
             <div class="panel-body">
-              <h3>33</h3>
+              <h3><?php echo $num_pages; ?></h3>
             </div>
           </div>
         </div>
-
+          
           
             <div class="col-sm-4 col-md-3">  <div class="panel panel-default stats-articles">
             <div class="panel-heading"><b>ARTICLES</b></div>
             <div class="panel-body">
-              <h3>33</h3>
+              <h3><?php echo $num_articles; ?></h3>
             </div>
           </div>
         </div>
@@ -110,7 +110,7 @@
             <div class="col-sm-4 col-md-3">  <div class="panel panel-default stats-users">
             <div class="panel-heading"><b>USERS</b></div>
             <div class="panel-body">
-              <h3>33</h3>
+              <h3><?php echo $num_users; ?></h3>
             </div>
           </div>
         </div>

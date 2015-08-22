@@ -10,13 +10,22 @@ class Dashboard extends CI_Controller {
 		$this->load->library('encrypt');
 		$this->load->helper('form');
 		$this->load->model('settings'); 
+		$this->load->model('page'); 
+		$this->load->model('article'); 
+		$this->load->model('user'); 
 
 		}
 	
 	public function index(){
 		
 		if($this->session->userdata('logged_in')){
-			$this->load->view('index'); 
+
+			$data_array['num_pages'] = $this->number_of_pages(); 
+			$data_array['num_articles'] = $this->number_of_articles();
+			$data_array['num_users'] = $this->number_of_users(); 
+
+
+			$this->load->view('index', $data_array); 
 		}
 		else {
 			$this->load->view('login'); 
@@ -38,5 +47,19 @@ class Dashboard extends CI_Controller {
 	function showUserInfo(){
 		
 	}
+
+	private function number_of_pages(){
+		return $this->page->count_pages(); 
+	
+	}
+
+	private function number_of_articles(){
+		return $this->article->count_articles(); 
+	}
+
+	private function number_of_users(){
+		return $this->user->count_users(); 
+	}
+
 	
 }

@@ -76,6 +76,7 @@ class Pages extends My_Controller {
 
 	}
 
+
 }
 
 ?>

@@ -21,4 +21,9 @@ class article extends MY_Model {
 		$this->delete($id); 
 	}
 
+	public function count_articles(){
+		return $this->get_num_rows(); 
+	}
+
+
 }
