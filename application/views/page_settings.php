@@ -92,6 +92,7 @@
               'id'          => 'about',
               'maxlength'   => '100',
               'size'        => '50',
+              'value'       =>  $settings[0]['about_text']
             );
 
             $footer_text = array(

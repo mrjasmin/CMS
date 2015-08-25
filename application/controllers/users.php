@@ -14,8 +14,13 @@ class Users extends CI_Controller {
 	
 	function index(){
 
-		$data_array['users'] = $this->user->get_users(); 
-		$this->load->view('users', $data_array); 
+		if($this->session->userdata('logged_in')){
+			$data_array['users'] = $this->user->get_users(); 
+		    $this->load->view('users', $data_array); 
+		}
+		else {
+			$this->load->view('login'); 
+		}
 
 	}
 	

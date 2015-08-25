@@ -11,6 +11,24 @@
 
     <title>Dashboard Template for Bootstrap</title>
 
+    <!-- jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <!-- tinymce -->
+    <script type="text/javascript" src="<?php echo site_url('js/tinymce.min.js'); ?>"></script>
+
+    <script type="text/javascript">
+        tinymce.init({
+            theme: "modern",
+            width: 680,
+            plugins: [
+            "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+            "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+            "save table contextmenu directionality emoticons template paste textcolor"],
+            selector: "#mytextarea"
+        });
+    </script>
+
     <!-- Bootstrap core CSS -->
     <link href="<?php echo site_url('css/bootstrap.min.css');?>" rel="stylesheet">
 
@@ -74,6 +92,14 @@
           <h2 class="sub-header">Add new Article</h2>
           <div class="table-responsive">
 
+          <?php if(validation_errors() == NULL){
+           
+          }
+          else {?>
+            <div class="alert alert-info"><?php echo validation_errors(); ?></div><?php  
+          }
+          ?>
+
            <?php 
            
            echo form_open('articles/new_article'); 
@@ -88,7 +114,7 @@
            
             $content = array(
               'name'        => 'content',
-              'id'          => 'content',
+              'id'          => 'mytextarea',
               'rows'        =>  '10',
               'cols'       => '51',
             );
@@ -116,11 +142,13 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+   
     <script src="../../dist/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="../../assets/js/vendor/holder.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+  
   </body>
 </html>

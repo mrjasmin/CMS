@@ -74,6 +74,14 @@
           <h2 class="sub-header">Add new Page</h2>
           <div class="table-responsive">
 
+          <?php if(validation_errors() == NULL){
+           
+          }
+          else {?>
+            <div class="alert alert-info"><?php echo validation_errors(); ?></div><?php  
+          }
+          ?>
+
            <?php 
            
            echo form_open('pages/new_page'); 
@@ -128,7 +136,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="<?php echo site_url('js/bootstrap.min.js');?>"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="../../assets/js/vendor/holder.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

@@ -32,7 +32,6 @@ class Dashboard extends CI_Controller {
 		}
 		else {
 
-
 			$this->load->view('login'); 
 		}
 		

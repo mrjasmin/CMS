@@ -9,7 +9,7 @@ class Pages extends My_Controller {
 		$this->load->library('session');
 		$this->load->library('encrypt');
 		$this->load->helper('form');
-
+		$this->load->library('form_validation');
 	}
 	
 	function index(){
@@ -45,12 +45,38 @@ class Pages extends My_Controller {
 						'order'=> $_POST['order']); 
 
 		
-		
-		$this->page->save($data_array); 
+		$config = array(
+					array(
+						'field'=>'title',
+						'label'=>'title',
+						'rules'=>'trim|required'
+					),
+					array(
+						'field'=>'content',
+						'label'=>'content',
+						'rules'=>'trim|required'
+					),
+					array(
+						'field'=>'order',
+						'label'=>'order',
+						'rules'=>'trim|required'
+					)
+		); 
 
-		redirect('pages'); 
+		$this->form_validation->set_rules($config);
+		$validation = $this->form_validation->run();
+
+		if($validation == FALSE){
+			$this->new_page_form(); 
+		}	
+		else {
+			
+			$this->page->save($data_array); 
+			redirect('pages'); 
+		}
 
 	}
+
 	
 	function delete_page($id){
 		$this->page->delete_page($id); 
@@ -75,7 +101,6 @@ class Pages extends My_Controller {
 		redirect('pages'); 
 
 	}
-
 
 }
 

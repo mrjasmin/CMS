@@ -8,12 +8,19 @@ class Articles extends CI_Controller {
 		$this->load->model('page'); 
 		$this->load->helper('form'); 
 		$this->load->helper('date'); 
+		$this->load->library('form_validation');
 	}
 	
 	function index(){
-		$data_array['articles'] = $this->article->get_articles(); 
+		
+		if($this->session->userdata('logged_in')){
+			$data_array['articles'] = $this->article->get_articles(); 
+			$this->load->view('articles', $data_array); 
+		}
+		else {
+			$this->load->view('login'); 
+		}
 
-		$this->load->view('articles', $data_array); 
 	}
 	
 	function new_article_form(){
@@ -27,10 +34,34 @@ class Articles extends CI_Controller {
 						'date'=> now(), 
 						'author'=> 'mrjasmin'); 
 
-		
-		$this->article->save($data_array); 
+	    $config = array(
+					array(
+						'field'=>'title',
+						'label'=>'title',
+						'rules'=>'trim|required'
+					),
+					array(
+						'field'=>'content',
+						'label'=>'content',
+						'rules'=>'trim|required'
+					)
+					
+		); 
 
-		redirect('articles'); 
+		$this->form_validation->set_rules($config);
+		$validation = $this->form_validation->run();
+
+		if($validation == FALSE){
+			$this->new_article_form(); 
+		}	
+		else {
+			
+			$this->article->save($data_array); 
+			redirect('articles'); 
+		}
+		
+
+		
 	}
 	
 	function delete_article($id){
