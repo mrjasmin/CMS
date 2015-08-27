@@ -4,7 +4,7 @@ class Settings extends MY_Model {
 	
 	
 	protected $_table_name = 'settings';
-	protected $_primary_key= "";
+	protected $_primary_key= "id";
 	protected $_order_by = ""; 
 	protected $_order_type =""; 
 	
@@ -18,7 +18,9 @@ class Settings extends MY_Model {
 			$this->save($data); 
 		}
 		else {
-			//Update row in database
+		   //Update row in database
+		   $this->update($data, 1); 
+
 		}
 	}
 	

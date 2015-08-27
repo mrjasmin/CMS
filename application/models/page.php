@@ -1,6 +1,6 @@
 <?php
 
-class page extends MY_Model {
+class Page extends MY_Model {
 	
 	
 	protected $_table_name = 'pages';

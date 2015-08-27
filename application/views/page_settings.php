@@ -84,6 +84,7 @@
               'id'          => 'title',
               'maxlength'   => '100',
               'size'        => '50',
+              'value'       => $settings['h2_header']
              
             );
 
@@ -92,7 +93,7 @@
               'id'          => 'about',
               'maxlength'   => '100',
               'size'        => '50',
-              'value'       =>  $settings[0]['about_text']
+              'value'       =>  $settings['about_text']
             );
 
             $footer_text = array(
@@ -100,8 +101,45 @@
               'id'          => 'footer',
               'maxlength'   => '100',
               'size'        => '50',
-              'value'       =>  $settings[0]['footer_text']
+              'value'       => $settings['footer_text']
             );
+
+            $page_name = array(
+              'name'        =>'page_name', 
+              'id'          =>'page_name', 
+              'maxlength'   => '100',
+              'size'        => '50',
+              'value'       => $settings['title']
+            ); 
+
+            $meta_title = array(
+              'name'        =>'meta_title', 
+              'id'          =>'meta_title', 
+              'maxlength'   => '100',
+              'size'        => '50',
+              'value'       => $settings['meta_title']
+            ); 
+
+            $meta_author = array(
+              'name'        =>'meta_author', 
+              'id'          =>'meta_author', 
+              'maxlength'   => '100',
+              'size'        => '50',
+              'value'       => $settings['meta_author']
+            ); 
+
+            $meta_content = array(
+              'name'        =>'meta_content', 
+              'id'          =>'page_name', 
+              'maxlength'   => '100',
+              'size'        => '50',
+              'value'       => $settings['meta_content']
+            ); 
+
+            echo form_label('Page name', 'page_name');
+            echo "</br>"; 
+            echo form_input($page_name);
+            echo "</br>"; 
 
 
             echo form_label('h2 header', 'title');
@@ -121,11 +159,42 @@
             echo "</br>"; 
             echo "</br>"; 
             
+
+
+            ?>
+
+            <h2 class="sub-header" id="meta_icon"><span>Meta Settings</span></h2>
+
+            <?php
+
+            echo form_label('Title', 'meta_title');
+            echo "</br>"; 
+            echo form_input($meta_title);
+            echo "</br>";
+
+
+            echo form_label('meta author', 'meta_author');
+            echo "</br>"; 
+            echo form_input($meta_author);
+            echo "</br>"; 
+
+            echo form_label('meta content', 'meta_content');
+            echo "</br>"; 
+            echo form_input($meta_content);
+            echo "</br>"; 
+            echo "</br>"; 
+
+
             echo form_submit('update', 'Save settings');
               
             ?>
 
           </div>
+
+
+          
+        
+
         </div>
       </div>
     </div>

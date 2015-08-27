@@ -42,7 +42,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="<?php echo site_url(); ?>">Project name</a>
+          <a class="navbar-brand" href="<?php echo site_url(); ?>"><?php if($settings == null){echo "LightCMS";} else { echo $settings[0]['title'];}?></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -75,11 +75,11 @@
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
           </p>
           <div class="jumbotron">
-            <h1>Hello, world!</h1>
+            <h1><?php if($settings == null){echo "Hello, world!";} else { echo $settings[0]['h2_header'];}?></h1>
             <p>
             <?php 
               if($settings == null){
-                echo "Text about you and your page"; 
+                echo "This is my blog where you can find articles and tutorials about programming"; 
                }
               else {
                 echo $settings[0]['about_text'];
@@ -135,7 +135,7 @@
         <p>
         <?php 
           if($settings == null){
-            echo "@copyright"; 
+            echo "Made by Jasmin Krhan"; 
           }
           else {
             echo $settings[0]['footer_text'];

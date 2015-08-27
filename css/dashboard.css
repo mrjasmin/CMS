@@ -132,6 +132,10 @@ input[type=submit]:hover {background-color: #5CAAED; border: 1px solid #A2A2A3; 
 
 #page_icon span { margin-left: 36px; }
 
+#meta_icon { background-image : url("../img/meta_icon.png"); background-repeat: no-repeat; background-position: 5px 6px; }
+
+#meta_icon span { margin-left: 40px; }
+
 #users_icon { background-image : url("../img/users_icon.png"); background-repeat: no-repeat; background-position: 5px -3px; }
 
 #users_icon span { margin-left: 40px;  }

@@ -1,6 +1,6 @@
 <?php
 
-class article extends MY_Model {
+class Article extends MY_Model {
 	
 	
 	protected $_table_name = 'news';

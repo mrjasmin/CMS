@@ -41,13 +41,16 @@ class MY_Model extends CI_Model {
 		$this->db->delete($this->_table_name); 
 	}
 	
-	public function update($data){
-		$this->db->where('page_id', $data['page_id']);
-		$this->db->update($this->_table_name, $data); 
-	}
+
 
 	public function get_num_rows(){
 		return $this->db->count_all($this->_table_name); 
 	}		
+
+	public function update($data, $id){	
+		$this->db->where($this->_primary_key, $id);
+		$this->db->update($this->_table_name, $data); 
+
+	}
 
 }

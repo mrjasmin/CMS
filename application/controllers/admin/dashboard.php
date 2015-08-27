@@ -39,13 +39,29 @@ class Dashboard extends CI_Controller {
 	}
 	
 	public function settings(){
-		$data_array['settings'] = $this->settings->get_settings(); 
-		$this->load->view('page_settings', $data_array); 
+		
+		$data = $this->settings->get_settings(); 
+
+		if($data == NULL){
+			$data_array['settings'] = array('id' => 1, 'h2_header' => 'Hello, world!', 'title' => 'LightCMS', 'about_text' => 'This is my blog where you can find articles and tutorials about programming', 'footer_text' => 'Made by Jasmin Krhan',
+		 									'meta_title' => 'LightCMS', 'meta_author' => 'Jasmin Krhan', 'meta_content' => 'CMS'); 
+			$this->load->view('page_settings', $data_array); 
+		}
+		else {
+			$data_array['settings'] = $data['0'];
+			$this->load->view('page_settings', $data_array);  
+		}	
+
+		
 	}
 
 	public function save_settings(){
-		$settings_data = array('h2_header' => $_POST['title'], 'about_text'=> $_POST['about'], 'footer_text' => $_POST['footer']); 	
+		$settings_data = array('id' => 1, 'h2_header' => $_POST['title'], 'about_text'=> $_POST['about'], 
+								'footer_text' => $_POST['footer'], 'meta_title' => $_POST['meta_title'], 'meta_author' => $_POST['meta_author'], 
+								'meta_content' => $_POST['meta_content'], 'title' => $_POST['page_name']); 	
+		
 		$this->settings->set_settings($settings_data); 
+		redirect('admin/dashboard/settings'); 
 	}
 
 	function showUserInfo(){
